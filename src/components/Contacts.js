@@ -9,6 +9,7 @@ import { useToasts } from "react-toast-notifications";
 
 
 
+
 const styles = theme => ({
     root: {
         "& .MuiTableCell-head": {
@@ -47,9 +48,8 @@ const Contacts = ({ classes, ...props }) => {
                             <TableHead className={classes.root}>
                                 <TableRow>
                                     <TableCell>Name</TableCell>
-                                    <TableCell>Phone Number</TableCell>
-                                    <TableCell>Email</TableCell>
-                                    <TableCell>imageUrl</TableCell>
+                                    <TableCell>Phone</TableCell>
+                                    <TableCell>Image</TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
                             </TableHead>
@@ -58,9 +58,14 @@ const Contacts = ({ classes, ...props }) => {
                                     props.contactList.map((record, index) => {
                                         return (<TableRow key={index} hover>
                                             <TableCell>{record.name}</TableCell>
-                                            <TableCell>{record.phoneNumber}</TableCell>
-                                            <TableCell>{record.email}</TableCell>
-                                            <TableCell>{record.imageUrl}</TableCell>
+                                            <TableCell>{record.phoneNumber}</TableCell>                                            
+                                            <img src={record.imageUrl} 
+                                                alt="Contact Photo"
+                                                style={
+                                                    {borderRadius:"50%", 
+                                                     height: "100px", 
+                                                     width:"100px"}
+                                                }/>
                                             <TableCell>
                                                 <ButtonGroup variant="text">
                                                     <Button><EditIcon color="primary"
